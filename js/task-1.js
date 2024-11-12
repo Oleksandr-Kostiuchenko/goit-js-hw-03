@@ -1,16 +1,18 @@
-function makeTransaction(quantity, pricePerDroid, customerCredits) {
-    const totalPrice = quantity * pricePerDroid;
+//TODO: Напиши функцію slugify(title), яка приймає заголовок статті, параметр title і повертає slug, створений із цього рядка.
 
-    if (totalPrice > customerCredits){
-        return("Insufficient funds!");
-    } else if (totalPrice <= customerCredits){
-        const message = `You ordered ${quantity} droids worth ${totalPrice} credits!`;
-        return message;
-    }
+//? Значенням параметра title будуть рядки, слова яких розділені лише пробілами.
+//? Усі символи slug повинні бути в нижньому регістрі.
+//? Усі слова slug повинні бути розділені тире.
+//? Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
+
+function slugify(title){
+    let titleArr = title.toLowerCase().split(' ');
+
+    let slug = titleArr.join('-');
+    return slug;
 }
 
-console.log(makeTransaction(5, 3000, 23000))
-console.log(makeTransaction(3, 1000, 15000));
-console.log(makeTransaction(10, 5000, 8000));
-console.log(makeTransaction(8, 2000, 10000)); 
-console.log(makeTransaction(10, 500, 5000)); 
+console.log(slugify("Arrays for beginners"));
+console.log(slugify("English for developer"));
+console.log(slugify("Ten secrets of JavaScript"));
+console.log(slugify("How to become a JUNIOR developer in TWO WEEKS"));

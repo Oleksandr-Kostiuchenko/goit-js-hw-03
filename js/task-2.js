@@ -1,14 +1,25 @@
-function formatMessage(message, maxLength){
-    if (message.length <= maxLength){
-        return(message);
-    } else if (message.length > maxLength){
-        return(`${message.slice(0, maxLength)}...`);
+//TODO: Напиши функцію під назвою makeArray, яка приймає три параметри: firstArray (масив), secondArray (масив) і maxLength (число). Функція повинна створювати новий масив, який містить усі елементи з firstArray, а потім усі елементи з secondArray.
+
+//? Якщо кількість елементів у новому масиві перевищує maxLength, функція повинна повернути копію масиву з довжиною maxLength елементів.
+//? В іншому випадку функція повинна повернути весь новий масив.
+
+function makeArray(firstArray, secondArray, maxLength){
+    let totalArrList = (firstArray.concat(secondArray));
+    
+    if (totalArrList.length > maxLength){
+        totalArrList =  totalArrList.slice(0, maxLength);
+        return totalArrList;
+    } 
+    else if (totalArrList.length <= maxLength){
+        return totalArrList;
     }
+
 }
 
-console.log(formatMessage("Curabitur ligula sapien", 16));
-console.log(formatMessage("Curabitur ligula sapien", 23));
-console.log(formatMessage("Vestibulum facilisis purus nec", 20));
-console.log(formatMessage("Vestibulum facilisis purus nec", 30));
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15));
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41));
+
+console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3));
+console.log(makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4));
+console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3));
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2));
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4));
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0));
